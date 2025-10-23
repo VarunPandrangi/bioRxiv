@@ -1,0 +1,23 @@
+Your task is to classify bioRxiv abstracts by infectious disease type using deep learning or traditional NLP-based text classification methods.
+
+What to do:
+Collect a few bioRxiv abstracts using keywords such as “COVID-19”, “Dengue”, and “Tuberculosis”, and train a model to classify which disease each abstract belongs to.
+
+Steps:
+
+Collect around 50–100 abstracts manually or using the bioRxiv API or web scraping.
+Preprocess the text (tokenization, stopword removal, and lemmatization).
+Use TF-IDF + Logistic Regression or a Transformer-based model (like BERT or SciBERT) for classification.
+Train and evaluate the model performance.
+Expected Output:
+
+Confusion matrix showing class-level performance.
+Accuracy score of your classifier.
+Submit the following to my email by 25 October, 11:59 PM:
+
+Python code (scripts/notebooks)
+Output images (confusion matrix and accuracy/loss plots)
+The dataset you used (CSV or Excel format)
+
+
+

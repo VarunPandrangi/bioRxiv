@@ -1,0 +1,10 @@
+Test,Result,Status
+CV Accuracy,0.9592 ± 0.0124,✓ Excellent
+CV F1,0.9591 ± 0.0124,✓ Excellent
+CV Precision,0.9634 ± 0.0108,✓ Excellent
+CV Recall,0.9590 ± 0.0126,✓ Excellent
+Max Variance,0.0259,✓ Stable
+Train Confidence,0.6667,✓ Good
+Test Confidence,0.5784,✓ Good
+Confidence Gap,0.0883,⚠ Check
+Model Deterministic,Yes,✓ Pass
