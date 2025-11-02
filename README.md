@@ -24,13 +24,13 @@ This project implements a **deep learning pipeline** for classifying bioRxiv res
 
 ### Model Performance Summary
 
-| Model | Accuracy | F1-Score | Precision | Recall | MCC | ROC-AUC |
-|-------|----------|----------|-----------|--------|-----|---------|
-| **BioBERT** | **98.0%** | 0.9800 | 0.9812 | 0.9800 | 0.9706 | 0.9933 |
-| **ClinicalBERT** | **98.0%** | 0.9800 | 0.9812 | 0.9800 | 0.9706 | 0.9933 |
-| **BioLinkBERT** | **98.0%** | 0.9800 | 0.9812 | 0.9800 | 0.9706 | 0.9933 |
-| **Ensemble** | **98.0%** | 0.9800 | 0.9812 | 0.9800 | 0.9706 | **1.0000** ⭐ |
-| PubMedBERT | 90.0% | 0.9011 | 0.9067 | 0.9000 | 0.8522 | 0.9778 |
+| Model | Accuracy | F1-Score | Precision | Recall | MCC |
+|-------|----------|----------|-----------|--------|-----|
+| **BioBERT** | **98.0%** | 0.9800 | 0.9812 | 0.9800 | 0.9706 |
+| **ClinicalBERT** | **98.0%** | 0.9800 | 0.9812 | 0.9800 | 0.9706 |
+| **BioLinkBERT** | **98.0%** | 0.9800 | 0.9812 | 0.9800 | 0.9706 |
+| **Ensemble** | **98.0%** | 0.9800 | 0.9812 | 0.9800 | 0.9706 |
+| PubMedBERT | 90.0% | 0.9011 | 0.9067 | 0.9000 | 0.8522 |
 
 ### Key Achievements
 
@@ -132,34 +132,64 @@ This project implements an 11-phase pipeline progressing from traditional machin
 
 **Data Collection:**
 - Source: bioRxiv API (https://api.biorxiv.org)
-- Keywords: "COVID-19", "SARS-CoV-2", "Dengue", "Tuberculosis", "Malaria", "Zika"
+- Keywords: "COVID-19", "SARS-CoV-2", "Dengue", "Tuberculosis"
 - Collection period: January 2020 - October 2025
 - Rate limiting: 1-second delays between requests
 - Deduplication: DOI-based + content hashing
-- Final dataset: 246 abstracts balanced across 5 disease classes
+- Final dataset: 246 abstracts balanced across 3 disease classes
 
-### Phases 1-10: Traditional ML Pipeline
+### Phases 1-10: Traditional ML & Initial Deep Learning
 
-**Phase 1-4: Preprocessing & Feature Engineering**
-- Text preprocessing: Tokenization, stopword removal, lemmatization (spaCy)
-- TF-IDF vectorization: Max 5000 features, unigrams + bigrams
-- Exploratory data analysis: Class distribution, text length analysis, word frequency
+**Phase 1: Load Existing Preprocessed Data**
+- Load raw and preprocessed bioRxiv abstracts (246 samples, 3 diseases)
+- Verify data integrity and class balance (82 samples per disease)
+- Prepare train/validation/test splits (72%/8%/20% = 176/20/50)
 
-**Phase 5-6: Baseline Logistic Regression**
-- TF-IDF + L2-regularized Logistic Regression
-- Test accuracy: 98% (49/50 correct)
-- 5-fold cross-validation: 96.0% ± 1.2%
-- Training time: <0.1 seconds
+**Phase 2: Advanced Data Preparation**
+- Create stratified train/val/test splits with fixed random state
+- Ensure balanced class distribution across all splits
+- Prepare data structures for model training
 
-**Phase 7-8: SciBERT Transformer**
-- Fine-tuned SciBERT on raw abstracts
-- Test accuracy: 96% (48/50 correct)
-- Training time: ~20 minutes (CPU)
+**Phase 3: Custom PyTorch Dataset Class**
+- Implement custom dataset class for transformer models
+- Handle tokenization and encoding for BERT-based models
+- Setup data loaders with appropriate batch sizes
 
-**Phase 9-10: Comparison & Documentation**
-- Model comparison across metrics
-- Feature importance analysis
-- Error diagnostics and robustness testing
+**Phase 4: Model Selection & Comparison**
+- Evaluate candidate biomedical transformer models
+- Compare BioBERT, PubMedBERT, SciBERT architectures
+- Select optimal models for fine-tuning
+
+**Phase 5: Optimized Training Configuration**
+- Configure training hyperparameters (learning rate, batch size, epochs)
+- Setup AdamW optimizer with weight decay
+- Implement learning rate scheduling with warmup
+
+**Phase 6: Train All Candidate Models**
+- Fine-tune BioBERT on bioRxiv abstracts
+- Fine-tune PubMedBERT on bioRxiv abstracts
+- Fine-tune SciBERT on bioRxiv abstracts
+- Training time: ~20-40 minutes per model (CPU/GPU)
+
+**Phase 7: Model Comparison & Best Model Selection**
+- Compare all models on validation set
+- Evaluate metrics: accuracy, F1-score, precision, recall
+- Select best-performing model for detailed analysis
+
+**Phase 8: Detailed Evaluation of Best Model**
+- Test set evaluation on 50 held-out samples
+- Generate classification reports and confusion matrices
+- Calculate Matthews Correlation Coefficient (MCC)
+
+**Phase 9: Training History Visualization**
+- Plot training/validation loss curves
+- Visualize learning dynamics over epochs
+- Identify overfitting/underfitting patterns
+
+**Phase 10: Per-Class Performance Analysis**
+- Calculate per-disease precision, recall, F1-score
+- Analyze model confidence on correct vs incorrect predictions
+- Identify challenging disease categories
 
 ### Phase 11: Advanced Deep Learning (Main Innovation)
 
@@ -189,10 +219,10 @@ This project implements an 11-phase pipeline progressing from traditional machin
 #### Phase 11.6-11.8: Comprehensive Evaluation
 
 **Performance Metrics:**
-- Test accuracy: 98% for top 3 models
+- Test accuracy: 98% for top 3 models (BioBERT, ClinicalBERT, BioLinkBERT), 90% for PubMedBERT
 - Per-class F1 scores: All >0.97
 - Matthews Correlation Coefficient: 0.9706
-- ROC-AUC scores: 0.9933 (individual), 1.0000 (ensemble)
+- Ensemble ROC-AUC: 1.0000 (perfect probability ranking)
 
 **Ensemble Modeling:**
 - Weighted soft voting based on validation F1 scores
