@@ -177,8 +177,8 @@ ensemble_probs = sum(w * model_probs[m] for m, w in weights.items())
 
 | Model | Accuracy | Precision | Recall | F1-Score | Phase |
 |-------|----------|-----------|--------|----------|-------|
-| Logistic Regression (TF-IDF) | 98.0% | 0.9811 | 0.9804 | 0.9800 | Phases 5-6 |
-| SciBERT | 96.0% | 0.9644 | 0.9608 | 0.9602 | Phases 7-8 |
+| Logistic Regression (TF-IDF) | 98.0% | 0.9811 | 0.9800 | 0.9800 | Phases 5-6 |
+| SciBERT | 96.0% | 0.9644 | 0.9600 | 0.9606 | Phases 7-8 |
 
 **Per-Class Performance (Ensemble Model):**
 

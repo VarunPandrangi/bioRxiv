@@ -39,7 +39,7 @@ This project implements a **deep learning pipeline** for classifying bioRxiv res
 | Model | Accuracy | F1-Score | Precision | Recall | Phase |
 |-------|----------|----------|-----------|--------|-------|
 | Logistic Regression (TF-IDF) | 98.0% | 0.9800 | 0.9811 | 0.9800 | Phases 5-6 |
-| SciBERT | 96.0% | 0.9602 | 0.9644 | 0.9608 | Phases 7-8 |
+| SciBERT | 96.0% | 0.9606 | 0.9644 | 0.9600 | Phases 7-8 |
 
 ### Key Achievements
 
