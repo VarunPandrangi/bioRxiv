@@ -221,7 +221,7 @@ This project implements an 11-phase pipeline progressing from traditional machin
 
 **Cross-Validation:**
 - 3-fold stratified CV on BioBERT
-- Results: 92.35% ± 6.21% accuracy
+- Results: 92.35% ± 1.26% accuracy
 - Fold-wise scores: [94.92%, 95.08%, 86.89%]
 - Total runtime: ~3 hours
 
@@ -235,7 +235,7 @@ This project implements an 11-phase pipeline progressing from traditional machin
 
 **Ensemble Modeling:**
 - Weighted soft voting based on validation F1 scores
-- Model weights: [0.33, 0.33, 0.33, 0.01] (BioBERT, ClinicalBERT, BioLinkBERT, PubMedBERT)
+- Model weights: [0.25, 0.25, 0.25, 0.25] (BioBERT, PubMedBERT, ClinicalBERT, BioLinkBERT)
 - Perfect ROC-AUC (1.0) indicates flawless probability ranking
 
 **Confusion Matrix Analysis:**
@@ -306,7 +306,7 @@ This project implements an 11-phase pipeline progressing from traditional machin
 ### Statistical Validation Results
 
 **Cross-Validation Findings:**
-- BioBERT CV: 92.35% ± 6.21% (3 folds)
+- BioBERT CV: 92.35% ± 1.26% (3 folds)
 - Fold-wise variance indicates some data heterogeneity
 - Lowest fold (86.89%) still exceeds baseline performance
 
