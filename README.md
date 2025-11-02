@@ -11,7 +11,7 @@ This project implements a **deep learning pipeline** for classifying bioRxiv res
 
 ### Project Highlights
 
-- **246 bioRxiv abstracts** across 5 disease categories (COVID-19, Dengue, Tuberculosis, Malaria, Zika)
+- **246 bioRxiv abstracts** across 3 disease categories (COVID-19, Dengue, Tuberculosis)
 - **4 biomedical transformer models** (BioBERT, PubMedBERT, ClinicalBERT, BioLinkBERT)
 - **Ensemble learning** achieving 98% accuracy with 1.0 ROC-AUC score
 - **Research-grade statistical validation** (cross-validation, bootstrap CI, significance testing)
