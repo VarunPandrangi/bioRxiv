@@ -286,5 +286,3 @@ I added feature importance, error analysis, and robustness testing because I wan
 
 ---
 
-*Project completed October 21, 2025. All code, data, and documentation available in this repository for evaluation.*
-
