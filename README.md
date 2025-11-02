@@ -7,7 +7,7 @@
 
 ## Overview
 
-This project implements a **state-of-the-art deep learning pipeline** for classifying bioRxiv research abstracts into infectious disease categories. It demonstrates a comprehensive machine learning workflow—from data collection and preprocessing to advanced transformer model training and statistical validation.
+This project implements a **deep learning pipeline** for classifying bioRxiv research abstracts into infectious disease categories. It demonstrates a comprehensive machine learning workflow—from data collection and preprocessing to advanced transformer model training and statistical validation.
 
 ### Project Highlights
 
