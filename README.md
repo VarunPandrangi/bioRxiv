@@ -24,6 +24,8 @@ This project implements a **deep learning pipeline** for classifying bioRxiv res
 
 ### Model Performance Summary
 
+**Phase 11 Models (Advanced Deep Learning):**
+
 | Model | Accuracy | F1-Score | Precision | Recall | MCC |
 |-------|----------|----------|-----------|--------|-----|
 | **BioBERT** | **98.0%** | 0.9800 | 0.9812 | 0.9800 | 0.9706 |
@@ -31,6 +33,13 @@ This project implements a **deep learning pipeline** for classifying bioRxiv res
 | **BioLinkBERT** | **98.0%** | 0.9800 | 0.9812 | 0.9800 | 0.9706 |
 | **Ensemble** | **98.0%** | 0.9800 | 0.9812 | 0.9800 | 0.9706 |
 | PubMedBERT | 90.0% | 0.9011 | 0.9067 | 0.9000 | 0.8522 |
+
+**Phases 1-10 Models (Baseline & Initial Deep Learning):**
+
+| Model | Accuracy | F1-Score | Precision | Recall | Phase |
+|-------|----------|----------|-----------|--------|-------|
+| Logistic Regression (TF-IDF) | 98.0% | 0.9800 | 0.9811 | 0.9800 | Phases 5-6 |
+| SciBERT | 96.0% | 0.9602 | 0.9644 | 0.9608 | Phases 7-8 |
 
 ### Key Achievements
 

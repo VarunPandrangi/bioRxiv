@@ -161,7 +161,7 @@ ensemble_probs = sum(w * model_probs[m] for m, w in weights.items())
 
 ### Phase 11.7: Comprehensive Model Comparison
 
-**Performance Metrics (All 4 Models + Ensemble):**
+**Performance Metrics (Phase 11: Advanced Deep Learning):**
 
 | Model | Accuracy | Precision | Recall | F1-Score | MCC |
 |-------|----------|-----------|--------|----------|-----|
@@ -172,6 +172,13 @@ ensemble_probs = sum(w * model_probs[m] for m, w in weights.items())
 | **Ensemble** | **98.0%** | **0.9812** | **0.9800** | **0.9800** | **0.9706** |
 
 **Note:** ROC-AUC score of **1.0000** was achieved by the ensemble model through perfect probability ranking across all test samples.
+
+**Performance Metrics (Phases 1-10: Baseline & Initial Deep Learning):**
+
+| Model | Accuracy | Precision | Recall | F1-Score | Phase |
+|-------|----------|-----------|--------|----------|-------|
+| Logistic Regression (TF-IDF) | 98.0% | 0.9811 | 0.9804 | 0.9800 | Phases 5-6 |
+| SciBERT | 96.0% | 0.9644 | 0.9608 | 0.9602 | Phases 7-8 |
 
 **Per-Class Performance (Ensemble Model):**
 
